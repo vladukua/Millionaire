@@ -1,0 +1,123 @@
+﻿body {
+    background: url("../Resources/wwtbam-all-en-logo-game.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.hint {
+    height:65px;
+    width:100px;
+    background-color: white; 
+    font-size: 20px;
+    color:white;
+    cursor:pointer;
+    text-align:center;
+}
+
+.orangetext{
+    color:orange;
+}
+
+.scoretable{
+    position:absolute;
+    right:50px;
+    color:darkblue;
+    font-size:18px;
+    font-weight:bold;
+    bottom:240px;
+    top:5px;
+    height:50%;
+    cursor:none;    
+}
+
+.questtable{
+    width: 100%;    
+    position: absolute;
+    bottom: 10px;      
+}
+
+.questpanel{
+    background-image:url("/Resources/question_panel.png");
+    height:85px;
+    width:1024px;
+    background-color: white; 
+    font-size: 20px;
+    color:white;
+    text-align: center;
+}
+td{
+    text-align:center;
+}
+
+.leftblock{
+    text-align:right;
+}
+
+.rightblock{
+    text-align:left;
+}
+
+.btnAnwA{
+    background-image:url("/Resources/answer_panelA.png");
+    height:53px;
+    width:512px;
+    background-color: white; 
+    font-size: 20px;
+    color:white;
+    cursor:pointer;
+    text-align:center;
+    margin-bottom: 3px;
+}
+
+.btnAnwB{
+    background-image:url("/Resources/answer_panelB.png");
+    height:53px;
+    width:512px;
+    background-color: white; 
+    font-size: 20px;
+    color:white;
+    cursor:pointer;
+    text-align:center;
+    margin-bottom: 3px;
+}
+
+.btnAnwC{
+    background-image:url("/Resources/answer_panelC.png");
+    height:53px;
+    width:512px;
+    background-color: white; 
+    font-size: 20px;
+    color:white;
+    cursor:pointer;
+    text-align:center;
+   margin-bottom: 3px;
+}
+
+.btnAnwD{
+    background-image:url("/Resources/answer_panelD.png");
+    height:53px;
+    width:512px;
+    background-color: white; 
+    font-size: 20px;
+    color:white;
+    cursor:pointer;
+    text-align:center;
+    mmargin-bottom: 3px;
+}
+
+.init{
+    position:absolute;
+    text-align:center;
+    width:100%;
+}
+
+.passedscore{
+    background-color:none;
+    color:grey;
+}
+
+.currentscore{
+    background-color:orangered;
+}

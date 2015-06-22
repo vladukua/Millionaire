@@ -1,0 +1,108 @@
+﻿
+<Questions>
+  <Question>
+    <Text>Як звали собачку в казці про ріпку?</Text>
+    <A isCorrect="false">Тучка</A>
+    <B isCorrect="false">Ручка</B>
+    <C isCorrect="true">Жучка</C>
+    <D isCorrect="false">Шарік</D>
+  </Question>
+  <Question>
+    <Text>Що характерно для Баби Яги?</Text>
+    <A isCorrect="true">Костяна нога</A>
+    <B isCorrect="false">Золотий зуб</B>
+    <C isCorrect="false">Силіконовий бюст</C>
+    <D isCorrect="false">Діамантова рука</D>
+  </Question>
+  <Question>
+    <Text>В честь якого античного героя названо один з сортів крупи?</Text>
+    <A isCorrect="false">Гектор</A>
+    <B isCorrect="true">Геркулес</B>
+    <C isCorrect="false">Одісей</C>
+    <D isCorrect="false">Ахілес</D>
+  </Question>
+  <Question>
+    <Text>Що загубив ослик Іа в казці про Вінні-Пуха?</Text>
+    <A isCorrect="false">Совість</A>
+    <B isCorrect="false">Страх</B>
+    <C isCorrect="false">Зуби</C>
+    <D isCorrect="true">Хвостик</D>
+  </Question>
+  <Question>
+    <Text>Що допомагає черепасі захиститись від своїх ворогів?</Text>
+    <A isCorrect="false">Дах</A>
+    <B isCorrect="false">Шкаралупа</B>
+    <C isCorrect="false">Броня</C>
+    <D isCorrect="true">Панцир</D>
+  </Question>
+  <Question>
+    <Text>Як називається кут більший за 0 та менший за 90 градусів?</Text>
+    <A isCorrect="false">Прямий</A>
+    <B isCorrect="true">Гострий</B>
+    <C isCorrect="false">Тупий</C>
+    <D isCorrect="false">Розгорнутий</D>
+  </Question>
+  <Question>
+    <Text>Яку рекомендацію можна прочитати на упаковках деяких лікарств?</Text>
+    <A isCorrect="false">Приймати в темноті</A>
+    <B isCorrect="false">Відкривати в темноті</B>
+    <C isCorrect="false">Купляти в темноті</C>
+    <D isCorrect="true">Тримати в темноті</D>
+  </Question>
+  <Question>
+    <Text>Яка французька актриса була жінкою Володимира Висоцького?</Text>
+    <A isCorrect="true">Марина Влади</A>
+    <B isCorrect="false">Анні Жирадо</B>
+    <C isCorrect="false">Катрін Денев</C>
+    <D isCorrect="false">Бріджіт Бардо</D>
+  </Question>
+  <Question>
+    <Text>Яке місто є ціллю всіх хрестових походів?</Text>
+    <A isCorrect="false">Мекка</A>
+    <B isCorrect="false">Ватикан</B>
+    <C isCorrect="true">Єрусалим</C>
+    <D isCorrect="false">Лондон</D>
+  </Question>
+  <Question>
+    <Text>Який тип подорожей не вимагає купівлі зворотнього квитка?</Text>
+    <A isCorrect="false">Авіаційна</A>
+    <B isCorrect="false">Залізнодорожна</B>
+    <C isCorrect="true">Морський круїз</C>
+    <D isCorrect="false">Автодорожна</D>
+  </Question>
+  <Question>
+    <Text>Кого рибак бачить здалека?</Text>
+    <A isCorrect="true">Рибака</A>
+    <B isCorrect="false">Хробака</B>
+    <C isCorrect="false">Рибнагляд</C>
+    <D isCorrect="false">Рибовода</D>
+  </Question>
+  <Question>
+    <Text>Що використовують для піджарки хліба?</Text>
+    <A isCorrect="false">Постер</A>
+    <B isCorrect="false">Компостер</B>
+    <C isCorrect="false">Вінчестер</C>
+    <D isCorrect="true">Тостер</D>
+  </Question>
+  <Question>
+    <Text>Як називається головний провідник пасажирського поїзду?</Text>
+    <A isCorrect="true">Бригадир</A>
+    <B isCorrect="false">Старшина</B>
+    <C isCorrect="false">Суперпровідник</C>
+    <D isCorrect="false">Прораб</D>
+  </Question>
+  <Question>
+    <Text>Після яких слів Шерлока Холмса прозрівав доктор Ватсно?</Text>
+    <A isCorrect="true">Елементарно!</A>
+    <B isCorrect="false">Однозначно!</B>
+    <C isCorrect="false">Цілком зрозуміло!</C>
+    <D isCorrect="false">Упав віджався!</D>
+  </Question>
+  <Question>
+    <Text>Куди заборонено запливати на пляжах?</Text>
+    <A isCorrect="false">За кордон</A>
+    <B isCorrect="false">В камиші</B>
+    <C isCorrect="true">За буйки</C>
+    <D isCorrect="false">За горизонт</D>
+  </Question>
+</Questions>
