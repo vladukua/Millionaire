@@ -71,6 +71,10 @@ td{
     margin-bottom: 3px;
 }
 
+.btnAnwA:hover {
+    background-image: url("/Resources/answer_panela_hover.png");
+}
+
 .btnAnwB{
     background-image:url("/Resources/answer_panelB.png");
     height:53px;
@@ -81,6 +85,10 @@ td{
     cursor:pointer;
     text-align:center;
     margin-bottom: 3px;
+}
+
+.btnAnwB:hover {
+    background-image: url("/Resources/answer_panelb_hover.png");
 }
 
 .btnAnwC{
@@ -95,6 +103,10 @@ td{
    margin-bottom: 3px;
 }
 
+.btnAnwC:hover {
+    background-image: url("/Resources/answer_panelc_hover.png");
+}
+
 .btnAnwD{
     background-image:url("/Resources/answer_panelD.png");
     height:53px;
@@ -105,6 +117,10 @@ td{
     cursor:pointer;
     text-align:center;
     mmargin-bottom: 3px;
+}
+
+.btnAnwD:hover {
+    background-image: url("/Resources/answer_paneld_hover.png");
 }
 
 .init{

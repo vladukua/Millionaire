@@ -3,4 +3,3 @@ C:\Users\Frost\Documents\Visual Studio 2013\Projects\Millionaire\Millionaire\bin
 C:\Users\Frost\Documents\Visual Studio 2013\Projects\Millionaire\Millionaire\bin\Millionaire.pdb
 C:\Users\Frost\Documents\Visual Studio 2013\Projects\Millionaire\Millionaire\obj\Debug\Millionaire.dll
 C:\Users\Frost\Documents\Visual Studio 2013\Projects\Millionaire\Millionaire\obj\Debug\Millionaire.pdb
-C:\Users\Frost\Documents\Visual Studio 2013\Projects\Millionaire\Millionaire\obj\Debug\Millionaire.csprojResolveAssemblyReference.cache

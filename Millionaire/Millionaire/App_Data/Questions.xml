@@ -10,8 +10,8 @@
   <Question>
     <Text>Що характерно для Баби Яги?</Text>
     <A isCorrect="true">Костяна нога</A>
-    <B isCorrect="false">Золотий зуб</B>
-    <C isCorrect="false">Силіконовий бюст</C>
+    <B isCorrect="false">Силіконовий бюст</B>
+    <C isCorrect="false">Золотий зуб</C>
     <D isCorrect="false">Діамантова рука</D>
   </Question>
   <Question>

@@ -42,7 +42,7 @@
                     <td>11</td>
                     <td colspan="2">64 000</td>
                 </tr>
-                 <tr id="row10" class="ld">
+                 <tr id="row10" class="orangetext">
                     <td>10</td>
                     <td colspan="2">32 000</td>
                 </tr>
@@ -62,7 +62,7 @@
                     <td>6</td>
                     <td colspan="2">2 000</td>
                 </tr>
-                 <tr id="row5" class="ld">
+                 <tr id="row5" class="orangetext">
                     <td>5</td>
                     <td colspan="2">1 000</td>
                 </tr>

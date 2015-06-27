@@ -66,17 +66,23 @@
     <None Include="Resources\50_50_hint_used.png" />
     <None Include="Resources\hall_hint_used.png" />
     <None Include="Resources\phone_hint_used.png" />
+    <Content Include="Resources\answer_panela_hover.png" />
+    <Content Include="Resources\answer_panelb_hover.png" />
+    <Content Include="Resources\answer_panelc_hover.png" />
+    <Content Include="Resources\answer_paneld_hover.png" />
     <Content Include="WebForm1.aspx" />
     <None Include="Resources\wwtbam-all-en-logo-game.jpg" />
     <None Include="Resources\50_50_hint.png" />
     <None Include="Resources\phone_hint.png" />
     <None Include="Resources\hall_hint.png" />
-    <Content Include="Resources\Questions.xml" />
+    <Content Include="App_Data\Questions.xml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helpers\Answer.cs" />
-    <Compile Include="Helpers\Question.cs" />
+    <Compile Include="Code\Answer.cs" />
+    <Compile Include="Code\IQuestionRepository.cs" />
+    <Compile Include="Code\Question.cs" />
+    <Compile Include="Code\XmlQuestionRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
