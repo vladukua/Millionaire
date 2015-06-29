@@ -1,5 +1,7 @@
 ﻿body {
-    background: url("../Resources/wwtbam-all-en-logo-game.jpg") no-repeat center center fixed; 
+    background: url("/Resources/wwtbam-all-en-logo-game.jpg") no-repeat center center fixed; 
+    
+    /*background-image: url("/Resources/question_panel.png");*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

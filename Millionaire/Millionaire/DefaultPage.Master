@@ -1,0 +1,25 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="DefaultPage.master.cs" Inherits="Millionaire.DefaultPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Millionaire</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <header class="init">
+        <asp:ContentPlaceHolder runat="server" ID="header">
+            
+        </asp:ContentPlaceHolder>
+    </header>
+    <div>
+        <asp:ContentPlaceHolder ID="mainContent" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

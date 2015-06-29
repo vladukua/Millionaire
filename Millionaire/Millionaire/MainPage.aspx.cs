@@ -2,7 +2,6 @@
 using System.Net;
 using System.Net.Mail;
 using System.Web.UI;
-using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using Millionaire.Code;
 using MailMessage = System.Net.Mail.MailMessage;
@@ -11,30 +10,28 @@ using System.Linq;
 
 namespace Millionaire
 {
-    public partial class WebForm1 : Page
+    public partial class MainPage : Page
     {
         #region Private Fields
 
         private readonly IEnumerable<Question> _questions;
-        private static int _iteration;
+        private int _iteration;
         private string _gameOverMsg;
-        const string CorrectAnswerScript = "var audio = new Audio(); // Создаём новый элемент Audio\n" +
+        const string CorrectAnswerScript = "var audio = new Audio();\n" +
                              @"audio.src = 'http://static.mezgrman.de/downloads/wwm/richtig_stufe_1.mp3';" +
                              "\n" +
                              @"audio.autoplay = true;" + "\n" +
                              "audio.play();\n";
         private Button[] _answerButtons;
         private XmlQuestionRepository xqr;
+        private const string UserKey = "User";
+        private const string IterationKey = "Iteration";
 
         #endregion
 
         #region Constructors
 
-        static WebForm1()
-        {
-            _iteration = 0;
-        }
-        public WebForm1()
+        public MainPage()
         {
             xqr = new XmlQuestionRepository(Server.MapPath("App_Data/Questions.xml"));
             _questions = xqr.GetQuestions();
@@ -46,12 +43,22 @@ namespace Millionaire
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            _answerButtons = new Button[4];
-            _answerButtons[0] = this.btnAAnswer;
-            _answerButtons[1] = this.btnBAnswer;
-            _answerButtons[2] = this.btnCAnswer;
-            _answerButtons[3] = this.btnDAnswer;
-            FillFields();
+            if (Session[IterationKey] == null)
+            {
+                Session[IterationKey] = 0;
+            }
+            _iteration = (int)Session[IterationKey];
+            if (Session[UserKey] != null)
+            {
+                lblUserName.Text = "Гравець:  " + (string) Session[Keys.UserKey];
+                _answerButtons = new Button[4];
+                _answerButtons[0] = this.btnAAnswer;
+                _answerButtons[1] = this.btnBAnswer;
+                _answerButtons[2] = this.btnCAnswer;
+                _answerButtons[3] = this.btnDAnswer;
+                FillFields();
+                InitHintButtons();
+            }
         }
 
         protected void btnAAnswer_Click(object sender, EventArgs e)
@@ -59,10 +66,11 @@ namespace Millionaire
             if (CheckAnswer(AnswerType.A))
             {
                 _iteration++;
+                Session[IterationKey] = _iteration;
                 if (_iteration >= 15)
                 {
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Ви перемогли. Гру буде перезапущено.');", true);
-                    Restart(true);
+                    Response.Redirect("~/GameOverPage.aspx?state=win&money=" + GetMoney());
                     return;
                 }
                 FillFields();
@@ -70,7 +78,7 @@ namespace Millionaire
             }
             else
             {
-                ClearAll();
+                GameOver();
             }
         }
 
@@ -79,10 +87,11 @@ namespace Millionaire
             if (CheckAnswer(AnswerType.B))
             {
                 _iteration++;
+                Session[IterationKey] = _iteration;
                 if (_iteration >= 15)
                 {
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Ви перемогли. Гру буде перезапущено.');", true);
-                    Restart(true);
+                    Response.Redirect("~/GameOverPage.aspx?state=win&money=1000000");
                     return;
                 }
                 FillFields();
@@ -90,7 +99,7 @@ namespace Millionaire
             }
             else
             {
-                ClearAll();
+                GameOver();
             }
         }
 
@@ -99,10 +108,11 @@ namespace Millionaire
             if (CheckAnswer(AnswerType.C))
             {
                 _iteration++;
+                Session[IterationKey] = _iteration;
                 if (_iteration >= 15)
                 {
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Ви перемогли. Гру буде перезапущено.');", true);
-                    Restart(true);
+                    Response.Redirect("~/GameOverPage.aspx?state=win&money=1000000");
                     return;
                 }
                 FillFields();
@@ -110,7 +120,7 @@ namespace Millionaire
             }
             else
             {
-                ClearAll();
+                GameOver();
             }
         }
 
@@ -119,10 +129,10 @@ namespace Millionaire
             if (CheckAnswer(AnswerType.D))
             {
                 _iteration++;
+                Session[IterationKey] = _iteration;
                 if (_iteration >= 15)
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Ви перемогли. Гру буде перезапущено.');", true);
-                    Restart(true);
+                    Response.Redirect("~/GameOverPage.aspx?state=win&money=1000000");
                     return;
                 }
                 FillFields();
@@ -130,7 +140,7 @@ namespace Millionaire
             }
             else
             {
-                ClearAll();
+                GameOver();
             }
         }
 
@@ -143,9 +153,11 @@ namespace Millionaire
                                  "audio.play();\n";
             Page.ClientScript.RegisterStartupScript(this.GetType(), "calling", hintScript, true);
 
+            /*
             this.btnHint1.ImageUrl = @"~/Resources/50_50_hint_used.png";
             this.btnHint1.Enabled = false;
-
+            */
+            
             var rnd = new Random(DateTime.Now.Millisecond);
             var answer1 = 0;
             for (var i = 0; i < _questions.ElementAt(_iteration).Answers.Length; ++i)
@@ -182,8 +194,10 @@ namespace Millionaire
 
             var query = "window.open('https://www.google.com.ua/search?q=" + _questions.ElementAt(_iteration).Task + "');";
             ClientScript.RegisterStartupScript(this.GetType(), "window.open", query, true);
+            /*
             btnHint2.ImageUrl = @"~/Resources/hall_hint_used.png";
             btnHint2.Enabled = false;
+            */
         }
 
         protected void btnHint3_Click(object sender, ImageClickEventArgs e)
@@ -195,8 +209,10 @@ namespace Millionaire
                      "audio.play();\n";
             Page.ClientScript.RegisterStartupScript(this.GetType(), "calling", hintScript, true);
 
+            /*
             btnHint3.ImageUrl = @"~/Resources/phone_hint_used.png";
             btnHint3.Enabled = false;
+            */
 
             var fromAddress = new MailAddress("olegpavlukua@gmail.com", "Millionaire");
             var toAddress = new MailAddress("vladukteo@gmail.com", "Friend");
@@ -228,6 +244,13 @@ namespace Millionaire
 
         #region Helpers
 
+        private void InitHintButtons()
+        {
+            ScoreTableControl.BtnHelp1.Click += btnHint1_Click;
+            ScoreTableControl.BtnHelp2.Click += btnHint2_Click;
+            ScoreTableControl.BtnHelp3.Click += btnHint3_Click;
+        }
+
         private void FillFields()
         {
             this.lblQuestion.Text = _questions.ElementAt(_iteration).Task;
@@ -241,53 +264,32 @@ namespace Millionaire
 
         private void MarkRating()
         {
-            if (_iteration != 0)
+            ScoreTableControl.ChangeScore(_iteration);
+        }
+
+        private int GetMoney()
+        {
+            if (_iteration < 4)
             {
-                scoretable.Rows[15 - _iteration + 1].Attributes.Clear();
-                scoretable.Rows[15 - _iteration + 1].Attributes.Add("class", "passedscore");
-                scoretable.Rows[15 - _iteration].Attributes.Add("class", "currentscore");
+                return 0;
+            }
+            else if (_iteration < 9)
+            {
+                return 1000;
+            }
+            else if (_iteration < 14)
+            {
+                return 32000;
             }
             else
             {
-                scoretable.Rows[15].Attributes.Add("class", "currentscore");
+                return 1000000;
             }
-        }
-
-        private void Restart(bool isWinner = false)
-        {
-            _iteration = 0;
-            if (isWinner)
-            {
-                const string winGameScript = "var audio = new Audio(); // Создаём новый элемент Audio\n" +
-                                                 @"audio.src = 'http://static.mezgrman.de/downloads/wwm/richtig_millionenfrage.mp3'; // Указываем путь к звуку" +
-                                                 "\n" +
-                                                 @"audio.autoplay = true; // Автоматически запускаем" + "\n" +
-                                                 "audio.play();\n";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "calling", winGameScript, true);
-            }
-            ClearAll(false);
-            EnableAll();
         }
 
         private void GameOver()
         {
-            _gameOverMsg = "Гру закінчено. Ви виграли ";
-            if (_iteration < 4)
-            {
-                _gameOverMsg += "0 грн.";
-            }
-            else if (_iteration < 9)
-            {
-                _gameOverMsg += "1000 грн.";
-            }
-            else if (_iteration < 14)
-            {
-                _gameOverMsg += "32000 грн.";
-            }
-            else
-            {
-                _gameOverMsg = "1 000 000 грн!";
-            }
+            Response.Redirect("~/GameOverPage.aspx?state=lose&money=" + GetMoney());
         }
 
         private bool CheckAnswer(AnswerType answer)
@@ -310,33 +312,6 @@ namespace Millionaire
             }
 
             return retFlag;
-        }
-
-        private void ClearAll(bool flag = true)
-        {
-            if (flag)
-            {
-                const string wrongAnswerScript = "var audio = new Audio(); // Создаём новый элемент Audio\n" +
-                                                 @"audio.src = 'http://static.mezgrman.de/downloads/wwm/falsch.mp3'; // Указываем путь к звуку" +
-                                                 "\n" +
-                                                 @"audio.autoplay = true; // Автоматически запускаем" + "\n" +
-                                                 "audio.play();\n";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "calling", wrongAnswerScript, true);
-            }
-            GameOver();
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "game_over_alert", "alert('" + _gameOverMsg + "');", true);
-            foreach (HtmlTableRow row in scoretable.Rows)
-            {                
-                row.Attributes.Clear();
-            }
-            _iteration = 0;
-            btnHint1.ImageUrl = "~/Resources/50_50_hint.png";
-            btnHint1.Enabled = true;
-            btnHint2.Enabled = true;
-            btnHint2.ImageUrl = "~/Resources/hall_hint.png";
-            btnHint3.Enabled = true;
-            btnHint3.ImageUrl = "~/Resources/phone_hint.png";
-            FillFields();
         }
 
         private void EnableAll()
